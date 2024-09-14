@@ -1,0 +1,20 @@
+.contact-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  mat-card {
+    width: 400px;
+  }
+  
+  .contact-avatar {
+    background-color: #3f51b5;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  

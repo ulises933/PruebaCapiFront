@@ -1,0 +1,96 @@
+/* Contenedor principal */
+.edit-contact-container {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  mat-card {
+    width: 100%;
+    max-width: 800px;
+  }
+  
+  .form-header {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .half-width {
+    width: 48%;
+  }
+  
+  /* Espaciado */
+  .small-margin {
+    margin-bottom: 10px;
+  }
+  
+  .medium-margin {
+    margin-bottom: 15px;
+  }
+  
+  .large-margin {
+    margin-bottom: 20px;
+  }
+  
+  /* Botones de formulario */
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .panel-content {
+    padding: 10px;
+  }
+  
+  .form-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .address-section {
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+  
+  .phone-title,
+  .email-title,
+  .address-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  /* Botones */
+  .add-button {
+    margin-top: 10px;
+  }
+  
+  .delete-button {
+    margin-left: 10px;
+  }
+  .row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    .half-width {
+      width: 100%;
+    }
+  
+    .row {
+      flex-direction: column;
+    }
+  }
+  

@@ -1,0 +1,154 @@
+<div class="add-contact-container">
+    <mat-card>
+      <mat-toolbar color="primary" class="form-header">
+        <span>Agregar Nuevo Contacto</span>
+      </mat-toolbar>
+  
+      <mat-card-content>
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <!-- Información general -->
+          <mat-form-field appearance="outline" class="full-width small-margin">
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="nombre" required>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="full-width small-margin">
+            <mat-label>Notas</mat-label>
+            <textarea matInput formControlName="notas"></textarea>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="full-width small-margin">
+            <mat-label>Fecha de Cumpleaños</mat-label>
+            <input matInput formControlName="fecha_cumple" type="date">
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="full-width small-margin">
+            <mat-label>Página Web</mat-label>
+            <input matInput formControlName="pagina_web">
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="full-width small-margin">
+            <mat-label>Empresa</mat-label>
+            <input matInput formControlName="empresa">
+          </mat-form-field>
+  
+          <!-- Teléfonos -->
+          <mat-expansion-panel class="small-margin">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Teléfonos
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+  
+            <div formArrayName="telefonos" class="panel-content">
+              <div *ngFor="let phone of telefonos.controls; let i = index" [formGroupName]="i" class="form-section">
+                <h6 class="phone-title">Teléfono {{ i + 1 }}</h6>
+                <mat-form-field appearance="outline" class="half-width small-margin">
+                  <mat-label>Número</mat-label>
+                  <input matInput formControlName="numero">
+                </mat-form-field>
+  
+                <mat-form-field appearance="outline" class="half-width small-margin">
+                  <mat-label>Tipo</mat-label>
+                  <mat-select formControlName="tipo">
+                    <mat-option *ngFor="let type of phoneTypes" [value]="type">{{ type }}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+  
+                <button mat-icon-button color="warn" (click)="removePhone(i)" class="delete-button">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+              <button mat-raised-button color="primary" (click)="addPhone()" class="add-button">Añadir Teléfono</button>
+            </div>
+          </mat-expansion-panel>
+  
+          <!-- Emails -->
+          <mat-expansion-panel class="small-margin">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Emails
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+  
+            <div formArrayName="emails" class="panel-content">
+              <div *ngFor="let email of emails.controls; let i = index" [formGroupName]="i" class="form-section">
+                <h6 class="email-title">Email {{ i + 1 }}</h6>
+                <mat-form-field appearance="outline" class="half-width small-margin">
+                  <mat-label>Email</mat-label>
+                  <input matInput formControlName="email">
+                </mat-form-field>
+  
+                <mat-form-field appearance="outline" class="half-width small-margin">
+                  <mat-label>Tipo</mat-label>
+                  <mat-select formControlName="tipo">
+                    <mat-option *ngFor="let type of emailTypes" [value]="type">{{ type }}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+  
+                <button mat-icon-button color="warn" (click)="removeEmail(i)" class="delete-button">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+              <button mat-raised-button color="primary" (click)="addEmail()" class="add-button">Añadir Email</button>
+            </div>
+          </mat-expansion-panel>
+  
+<mat-expansion-panel class="small-margin">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Direcciones
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+  
+    <div formArrayName="direcciones" class="panel-content">
+      <div *ngFor="let address of direcciones.controls; let i = index" [formGroupName]="i" class="address-section">
+        <h6 class="address-title">Dirección {{ i + 1 }}</h6>
+  
+        <mat-form-field appearance="outline" class="full-width large-margin">
+          <mat-label>Dirección</mat-label>
+          <input matInput formControlName="direccion">
+        </mat-form-field>
+  
+        <div class="row">
+          <mat-form-field appearance="outline" class="half-width medium-margin">
+            <mat-label>Ciudad</mat-label>
+            <input matInput formControlName="ciudad">
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="half-width medium-margin">
+            <mat-label>Estado</mat-label>
+            <input matInput formControlName="estado">
+          </mat-form-field>
+        </div>
+  
+        <div class="row">
+          <mat-form-field appearance="outline" class="half-width medium-margin">
+            <mat-label>País</mat-label>
+            <input matInput formControlName="pais">
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="half-width medium-margin">
+            <mat-label>Código Postal</mat-label>
+            <input matInput formControlName="codigo_postal">
+          </mat-form-field>
+        </div>
+  
+        <button mat-icon-button color="warn" (click)="removeAddress(i)" class="delete-button">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+      <button mat-raised-button color="primary" (click)="addAddress()" class="add-button">Añadir Dirección</button>
+    </div>
+  </mat-expansion-panel>
+  
+  
+          <div class="form-actions">
+            <button mat-raised-button color="accent" type="submit">Guardar Contacto</button>
+            <button mat-raised-button color="warn" type="button" (click)="onCancel()">Cancelar</button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  

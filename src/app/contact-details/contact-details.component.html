@@ -1,0 +1,46 @@
+<div class="contact-details-container">
+    <h2>Detalles del Contacto</h2>
+    <mat-card *ngIf="contact">
+      <mat-card-header>
+        <div mat-card-avatar class="contact-avatar">
+          <mat-icon>person</mat-icon>
+        </div>
+        <mat-card-title>{{ contact.nombre }}</mat-card-title>
+        <mat-card-subtitle>{{ contact.empresa }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p><strong>Fecha de Cumpleaños:</strong> {{ contact.fecha_cumple | date }}</p>
+        <p><strong>Página Web:</strong> <a [href]="contact.pagina_web" target="_blank">{{ contact.pagina_web }}</a></p>
+        <p><strong>Notas:</strong> {{ contact.notas }}</p>
+  
+        <mat-divider></mat-divider>
+  
+        <p><strong>Teléfonos:</strong></p>
+        <ul>
+          <li *ngFor="let phone of contact.telefonos">{{ phone.tipo }}: {{ phone.numero }}</li>
+        </ul>
+  
+        <mat-divider></mat-divider>
+  
+        <p><strong>Emails:</strong></p>
+        <ul>
+          <li *ngFor="let email of contact.emails">{{ email.tipo }}: {{ email.email }}</li>
+        </ul>
+  
+        <mat-divider></mat-divider>
+  
+        <p><strong>Direcciones:</strong></p>
+        <ul>
+          <li *ngFor="let address of contact.direcciones">
+            <p><strong>Dirección:</strong> {{ address.direccion }}</p>
+            <p><strong>Ciudad:</strong> {{ address.ciudad }}</p>
+            <p><strong>Estado:</strong> {{ address.estado }}</p>
+            <p><strong>País:</strong> {{ address.pais }}</p>
+            <p><strong>Código Postal:</strong> {{ address.codigo_postal }}</p>
+          </li>
+        </ul>
+      </mat-card-content>
+      <button mat-button color="primary" (click)="onCancel()">Volver</button>
+    </mat-card>
+  </div>
+  
